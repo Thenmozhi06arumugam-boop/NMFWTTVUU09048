@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Interactive Portfolio Using HTML CSS And JavaScript - Thenmozhi A</title>
+<style>
+/* ===== Global Styles ===== */
+:root {
+--accent: #4CAF50;
+--bg: #f9f9f9;
+--card: #ffffff;
+--text: #222;
+--muted: #666;
+}
+
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== Header ===== */
+header {
+background: linear-gradient(90deg, var(--accent), #43a047);
+color: #fff;
+padding: 2rem 1rem;
+text-align: center;
+position: sticky;
+top: 0;
+z-index: 10;
+box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+header .title {
+font-size: 1.4rem;
+font-weight: 700;
+letter-spacing: 0.2px;
+}
+header .sub {
+margin-top: 0.25rem;
+font-size: 0.95rem;
+opacity: 0.95;
+}
+
+/* ===== Navigation ===== */
+nav {
+display:flex;
+justify-content:center;
+gap: 0.25rem;
+margin-top: 0.9rem;
+flex-wrap:wrap;
+}
+nav a {
+color: rgba(255,255,255,0.95);
+padding: 0.45rem 0.8rem;
+border-radius: 999px;
+font-size: 0.9rem;
+transition: background .18s, transform .12s;
+}
+nav a:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); }
+
+/* ===== Page layout ===== */
+main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+section {
+margin: 2rem 0;
+padding: 1.25rem;
+background: transparent;
+border-radius: 10px;
+}
+.card {
+background: var(--card);
+border-radius: 10px;
+box-shadow: 0 6px 18px rgba(13,13,13,0.06);
+padding: 1.15rem 1.2rem;
+transform-origin: center;
+opacity: 0;
+transform: translateY(14px);
+transition: opacity 520ms ease, transform 520ms cubic-bezier(.2,.9,.3,1);
+}
+.card.visible { opacity: 1; transform: translateY(0); }
+
+h2 { color: var(--accent); font-size: 1.25rem; margin: 0 0 0.6rem 0; }
+h3 { margin: 0 0 .5rem 0; font-size: 1.05rem; }
+p { margin: 0.35rem 0; line-height: 1.5; color: #222; }
+.meta { color: var(--muted); font-size: 0.95rem; }
+
+ul { margin: 0.25rem 0 0 1rem; padding: 0; }
+li { margin: .35rem 0; }
+
+/* small left badge */
+.badge { display:inline-block; padding: 0.15rem 0.5rem; font-size: 0.8rem; background: rgba(76,175,80,0.12); color: var(--accent); border-radius: 6px; margin-right: 0.5rem; }
+
+/* ===== Footer ===== */
+footer { text-align:center; padding: 1.2rem; color: #fff; background: #333; border-radius: 8px; margin: 2rem 1rem 4rem; max-width:900px; margin-left:auto; margin-right:auto; }
+
+/* ===== Responsive ===== */
+@media (max-width:640px) {
+header { padding: 1.25rem .6rem; }
+main { margin-top: 1rem; }
+}
+
+/* ===== Focus ring (accessibility) ===== */
+a:focus, button:focus { outline: 3px solid rgba(76,175,80,0.18); outline-offset: 3px; }
+
+/* small decorative accent for sections */
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom: .6rem; }
+.section-header::before { content: ""; width:8px; height:8px; background:var(--accent); border-radius:50%; display:inline-block; box-shadow: 0 0 0 6px rgba(76,175,80,0.06); }
+
+/* subtle slide-in for title */
+header .title { transform: translateY(-6px); transition: transform .5s ease, opacity .5s ease; opacity: 0.98; }
+</style>
+</head>
+<body>
+<header role="banner" aria-label="Header">
+<div class="title">Interactive Portfolio Using HTML CSS And JavaScript— Thenmozhi. A</div>
+
+<nav role="navigation" aria-label="Main navigation">
+<a href="#intro">Intro</a>
+<a href="#objective">Objective</a>
+<a href="#dream">Dream Project</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#languages">Languages</a>
+<a href="#learning">Learning</a>
+</nav>
+</header>
+
+<main>
+<!-- 1. Introduction / Title Slide -->
+<section id="intro" aria-labelledby="introTitle">
+<div class="card">
+<div class="section-header"><h2 id="introTitle">1. Introduction / Title Slide</h2></div>
+<h3>Name: Thenmozhi. A</h3>
+<p class="meta">Location: CVM Annamalai Pura, Manavur, Thiruvalluvar District</p>
+<p class="meta">Mobile: 9363761323 · Email: thenmozhi06arumugam@gmail.com</p>
+</div>
+</section>
+
+<!-- 2. Career Objective -->
+<section id="objective" aria-labelledby="objectiveTitle">
+<div class="card">
+<div class="section-header"><h2 id="objectiveTitle">2. Career Objective</h2></div>
+<p>To pursue IT jobs and Government jobs and To obtain a challenging position in the field of Computer Application where I can apply my knowledge, grow my skills, and continuously learning and improving</p>
+</div>
+</section>
+
+<!-- 3. Dream Project / Future Profile -->
+<section id="dream" aria-labelledby="dreamTitle">
+<div class="card">
+<div class="section-header"><h2 id="dreamTitle">3. Dream Project / Future Profile</h2></div>
+<h3>Founder – “Airoster Education”</h3>
+<p><strong>Tagline:</strong> Smart Solution for a digital world</p>
+<p><strong>Motto:</strong> “Dream big , Start Small and Act now "</p>
+</div>
+</section>
+
+<!-- 4. Education -->
+<section id="education" aria-labelledby="educationTitle">
+<div class="card">
+<div class="section-header"><h2 id="educationTitle">4. Education</h2></div>
+<p><strong>Bachelor of Computer Applications (B.C.A.)</strong></p>
+<p class="meta">Location: Arakkonam, Attupakkam · University: Thiruvalluvar University</p>
+</div>
+</section>
+
+<!-- 5. Skills -->
+<section id="skills" aria-labelledby="skillsTitle">
+<div class="card">
+<div class="section-header"><h2 id="skillsTitle">5. Skills</h2></div>
+<ul>
+<li>HTML, CSS, JavaScript</li>
+<li>Python (Basic)</li>
+<li>MS Office</li>
+<li>Good Communication</li>
+<li>Teamwork</li>
+<li>Basic computer skills</li>
+<li> Problem solving</li>
+<li >Typing skills</li>
+</ul>
+</div>
+</section>
+
+<!-- 6. Projects & Achievements -->
+<section id="projects" aria-labelledby="projectsTitle">
+<div class="card">
+<div class="section-header"><h2 id="projectsTitle">6. Projects & Achievements</h2></div>
+<p><strong>Project Completed – Students Attendance Management System</strong></p>
+<p>Developed a simple system to track and manage student attendance.</p>
+<p>Improved efficiency and reduced manual errors.</p>
+<p> Improve English Speaking Skills -daily practice or small speeches<p></div>
+</section>
+
+<!-- 7. Languages Known -->
+<section id="languages" aria-labelledby="languagesTitle">
+<div class="card">
+<div class="section-header"><h2 id="languagesTitle">7. Languages Known</h2></div>
+<ul>
+<li>Tamil – read & write</li>
+<li>English – read & write</li>
+</ul>
+</div>
+</section>
+
+<!-- 8. Learning & Inspiration -->
+<section id="learning" aria-labelledby="learningTitle">
+<div class="card">
+<div class="section-header"><h2 id="learningTitle">8. Learning & Inspiration</h2></div>
+<p>Completed <strong>Mudhalvan Course</strong> – Improved English Communication & Leadership Skills<strong> Confidence Building</strong>- daily mirror talks, small challenges</p>
+<p>Inspired by <strong> kalpana Chavala </strong> – First India women in space, Symbol of courage and determination</p>
+</div>
+</section>
+</main>
+
+<footer role="contentinfo">
+<div>© 2025 Thenmozhi. A | Interactive portfolio using HTML, CSS & JavaScript</div>
+</footer>
+
+<script>
+// Smooth scrolling for navigation links
+document.querySelectorAll('nav a').forEach(a=>{
+a.addEventListener('click', function(e){
+e.preventDefault();
+const el = document.querySelector(this.getAttribute('href'));
+if (!el) return;
+el.scrollIntoView({behavior:'smooth', block:'start'});
+// update focus for accessibility
+setTimeout(()=> el.querySelector('.card')?.focus?.(), 600);
+});
+});
+
+// IntersectionObserver to add 'visible' class for animation
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.card').forEach(card => {
+// Make cards keyboard-focusable for accessibility
+card.setAttribute('tabindex','-1');
+observer.observe(card);
+});
+
+// small entrance animation for header title
+window.addEventListener('load', ()=> {
+document.querySelector('header .title').style.transform = 'translateY(0)';
+});
+</script>
+</body>
+</html>
